@@ -11,7 +11,9 @@ const app = express();
 connectDB();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: ['https://kanban-frontend-neon.vercel.app/', 'http://localhost:3000']
+}));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/board', boardRoutes);
